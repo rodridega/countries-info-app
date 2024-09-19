@@ -36,15 +36,20 @@ export const CountryDetail = () => {
             ?
             <div className='w-full flex justify-center col-span-1 md:col-span-2 lg:col-span-3 mt-20'>
               <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
-
             </div>
             :
             <>
-              <div className='flex items-center flex-wrap gap-4'>
-                <h1 className='text-4xl font-semibold'>
-                  {country?.countryInfo.commonName}
-                </h1>
-                <img src={country?.countryFlag[0]} alt={country?.countryInfo.commonName} className='w-16' />
+              <div className='flex items-center justify-between flex-wrap gap-4'>
+                <div className='flex items-center gap-4'>
+                  <h1 className='text-4xl font-semibold'>
+                    {country?.countryInfo.commonName}
+                  </h1>
+                  <img src={country?.countryFlag[0]} alt={country?.countryInfo.commonName} className='w-16' />
+
+                </div>
+                <Link to='/' className='bg-gray-200 p-2 rounded-lg hover:bg-gray-300'>
+                  Back
+                </Link>
               </div>
 
               <div className='mt-10 border rounded p-4'>
@@ -58,7 +63,7 @@ export const CountryDetail = () => {
                   ))}
                 </ul>
               </div>
-              <div className='w-full h-[400px] p-10'>
+              <div className='w-full h-[400px] py-10'>
                 {
                   country && <PopulationChart data={country} />
                 }
